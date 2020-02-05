@@ -249,6 +249,12 @@ func (b *Birc) getClient() (*girc.Client, error) {
 		SSL:        b.GetBool("UseTLS"),
 		TLSConfig:  &tls.Config{InsecureSkipVerify: b.GetBool("SkipTLSVerify"), ServerName: server}, //nolint:gosec
 		PingDelay:  time.Minute,
+		WebIRC: girc.WebIRC{
+			Password: b.GetString("WebIRCPassword"),
+			Gateway:  "discord",
+			Hostname: "discord.",
+			Address:  "fd75:f5f5:226f::",
+		},
 	})
 	return i, nil
 }
