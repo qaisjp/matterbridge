@@ -231,6 +231,10 @@ func IsValidNick(nick string) bool {
 	}
 
 	for i := 1; i < len(nick); i++ {
+		if nick[i] == '~' {
+			continue
+		}
+
 		if (nick[i] < 'A' || nick[i] > '}') && (nick[i] < '0' || nick[i] > '9') && nick[i] != '-' {
 			// a-z, A-Z, 0-9, -, and _\[]{}^|
 			return false
