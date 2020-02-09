@@ -389,8 +389,8 @@ func (b *Bdiscord) webhookSend(msg *config.Message, webhookID, token string) (*d
 			}
 			if avatar, ok := b.findAvatar(msg); ok {
 				msg.Avatar = avatar
+				break
 			}
-			break
 		}
 	}
 
